@@ -10,12 +10,14 @@ Your goal is to write AI clode that plays these two variants of IJK well. We’v
 where uppercase-player and lowercase-player are each either ai or human, and mode is either det for deterministic IJK or nondet for nondeterministic IJK. These commands let you set up various types of games. For example, if you (a human) want to play a deterministic game against the ai, you could type:
 ./ijk.py human ai det
 
-### We have implemented this game using minimax with alpha-beta pruning and looking 6 steps ahead (has a depth of 6) of the current position of the board. It backs up the value which is going to increase the chances of winning for that player. We tried implementing 3 heuristics for our program.
+### Implementation
 
-### The first heuristic is simply the subtraction of the no. of tiles of player 1 and no. of tiles of player 2. The board which has this value highest is chosen and backed up. This one is used in the running and submitted code.
+We have implemented this game using minimax with alpha-beta pruning and looking 6 steps ahead (has a depth of 6) of the current position of the board. It backs up the value which is going to increase the chances of winning for that player. We tried implementing 3 heuristics for our program.
 
-### The second heuristic is: if 2 same alphabets having the same case lie on a row or a column, they add up to the final score. So, there needs to even a pair of alphabets. Then only score gets added to that particular board configuration. E.g.: if one of the rows contains ‘aa’ as well as ‘AA’, then that row gets a score of 2. The same goes for a situation in a column. Finally, all these scores add to the board score. 
+The first heuristic is simply the subtraction of the no. of tiles of player 1 and no. of tiles of player 2. The board which has this value highest is chosen and backed up. This one is used in the running and submitted code.
 
-### We had the third heuristic in mind but due to lack of time, we couldn’t implement it. This heuristic is built on top of heuristic 2 where instead of giving scores based on the same pairing, we give score even if two different case alphabets are beside each other. E.g.: if one of the rows contains ‘a’ as well as ‘A’, then that row gets a score of 1. The same goes for a situation in a column. Finally, all these scores add to the board score.
+The second heuristic is: if 2 same alphabets having the same case lie on a row or a column, they add up to the final score. So, there needs to even a pair of alphabets. Then only score gets added to that particular board configuration. E.g.: if one of the rows contains ‘aa’ as well as ‘AA’, then that row gets a score of 2. The same goes for a situation in a column. Finally, all these scores add to the board score. 
 
-### We ran around 12 trials for choosing the efficient heuristic for both det and nondet. In the trials, our first heuristic won 9 games, second heuristic won 2 and one ended in a tie. Hence, we went ahead with the first heuristic.
+We had the third heuristic in mind but due to lack of time, we couldn’t implement it. This heuristic is built on top of heuristic 2 where instead of giving scores based on the same pairing, we give score even if two different case alphabets are beside each other. E.g.: if one of the rows contains ‘a’ as well as ‘A’, then that row gets a score of 1. The same goes for a situation in a column. Finally, all these scores add to the board score.
+
+We ran around 12 trials for choosing the efficient heuristic for both det and nondet. In the trials, our first heuristic won 9 games, second heuristic won 2 and one ended in a tie. Hence, we went ahead with the first heuristic.
